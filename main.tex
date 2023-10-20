@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\pagestyle{empty}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage[svgnames]{xcolor}
+\usepackage{amsmath,amsthm,amssymb, graphicx, multicol, array, tikz, ulem}
+ 
+\newcommand{\nmatrix}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\parens}[1]{\left(#1\right)}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imgn}{Im}
+\DeclareMathOperator{\agmt}{Arg}
+\DeclareMathOperator{\len}{length}
+
+\begin{document}
+
+\section*{Week 1 (Sep 8)}
+\begin{itemize}
+    \item \textbf{Modulus}: $|z|=\sqrt{a^2+b^2}$
+    \item \textbf{Conjugate}: $\overline{z}=a-bi$
+    \item \textbf{Real and Imaginary Parts}: $\real(z)=a=\frac{z+\overline{z}}{2}$, $\imgn(z)=b=\frac{z-\overline{z}}{2i}$
+\end{itemize}
+
+\section*{Week 2 (Sep 12, Sep 15)}
+\begin{itemize}
+    \item \textbf{Polar Form}: $|z|e^{i\theta}$
+    \item \textbf{Polar Multiplication}: $z_1z_2=|z_1||z_2|e^{i(\theta_1+\theta_2)}$
+    \item \textbf{Argument}: $\agmt(z)=\theta$
+    \item \textbf{Euler's Formula}: $e^{i\theta}=\cos\theta+i\sin\theta$
+    \item \textbf{Fundamental Theorem of Algebra}: $\sum_{i=0}^na_iz^i,a_n\neq0$ has $n$ roots, up to counting multiplicity
+    \item \textbf{Linearization}: Use $\cos\theta=\frac{e^{i\theta}+e^{-i\theta}}{2}$ and $\sin\theta=\frac{e^{i\theta}-e^{-i\theta}}{2i}$, then expand and simplify
+    \item \textbf{Anti-Linearization}: Use De Moivre's Theorem, then expand and simplify. \\
+    e.g. $\cos(3\theta)=\real(e^{3i\theta})=\real((\cos\theta+i\sin\theta)^3)$
+    \item \textbf{De Moivre's Theorem}: $e^{ni\theta}=\cos(n\theta)+i\sin(n\theta)$
+\end{itemize}
+
+\section*{Week 3 (Sep 19, Sep 22)}
+\begin{itemize}
+    \item \textbf{Translation}: $T_u(z)=z+u$
+    \item \textbf{Rotation}: $R_{w,\theta}(z)=w+(z-w)e^{i\theta}$
+    \item \textbf{Homothety}: $R_{w,k}(z)=w+k(z-w)$
+    \item \textbf{Open Disk}: $B_r(z_0)=\{z\in\C, |z_0-z|<r\}$
+    \item \textbf{Open Set}: $(\forall z\in U)(\exists r>0)(B_r(z)\subseteq U)$
+    \item \textbf{Closed Set}: $U^\complement$ open
+    \item \textbf{Set Interior}: $\mathring{\overline{U}}=\{z\in \C|(\exists r>0)(B_r(z)\subseteq U)\}$
+    \item \textbf{Set Boundary}: $\partial(U)=\{z\in\C|(\forall r>0)(\exists z_1,z_2\in B_r(z))(z_1\in U)(z_2\notin U)\}$
+    \item \textbf{Set Closure}: $U\cup\partial(U)$
+    \item \textbf{Bounded Set}: $(\exists r>0)(U\subseteq B_r(0))$
+    \item \textbf{Connected Set}: Any 2 points in $U$ can be connected by a polygonal curve in $U$
+    \item \textbf{Convex Set}: Any 2 points in $U$ can be connected by a line segment in $U$
+    \item \textbf{Domain}: Open and Connected
+    \item \textbf{Series Convergence}: If series converges, $\lim_{n\rightarrow\infty}|a_n|=0$
+    \item \textbf{Absolute Convergence}: $\sum_{n\rightarrow\infty}|z_n|$ converges. Absolute convergence implies convergence
+    \item \textbf{Component Convergence}: $\sum_{n\rightarrow\infty}|z_n|$ converges $\iff \sum_{n\rightarrow\infty}|\real(z_n)|$ converges and $\sum_{n\rightarrow\infty}|\imgn(z_n)|$ converges
+    \item \textbf{Big-O Convergence}: $f$ converges if $|f|=O(g)$ for any $g$ known to converge \\
+    e.g. $g=\frac{1}{n^\alpha},\alpha>1$
+    \item \textbf{Ratio Test} If all $z_n\neq0$ and $\lim_{n\rightarrow\infty}\frac{|z_{n+1}|}{|z_n|}=L$ exists, $L<1\implies$ absolute convergence and $L>1\implies$ divergence
+    \item \textbf{Limits} \begin{itemize}
+        \item[$\bullet$] $\lim_{z\rightarrow z_0}=L$ if $(\forall\epsilon>0)(\exists\delta>0)(|z-z_0|<\delta\implies|f(z)-L|<\epsilon)$
+        \item[$\bullet$] $\lim_{z\rightarrow z_0}=\infty$ if $(\forall\epsilon>0)(\exists\delta>0)(|z-z_0|<\delta\implies|f(z)|>\epsilon)$
+        \item[$\bullet$] $\lim_{z\rightarrow\infty}=L$ if $(\forall\epsilon>0)(\exists\delta>0)(|z-z_0|>\delta\implies|f(z)-L|<\epsilon)$
+        \item[$\bullet$] $\lim_{z\rightarrow\infty}=\infty$ if $(\forall\epsilon>0)(\exists\delta>0)(|z-z_0|>\delta\implies|f(z)|>\epsilon)$
+    \end{itemize}
+\end{itemize}
+
+\section*{Week 4 (Sep 26, Sep 29)}
+\begin{itemize}
+    \item \textbf{Polynomial}: Continuous, differentiable everywhere, $\C\mapsto\C$
+    \item \textbf{Exponential}: Continuous, differentiable everywhere, $\C\mapsto\C^*$
+    \begin{itemize}
+        \item[$\bullet$] $|e^z|=e^{\real(z)}$
+        \item[$\bullet$] $\agmt(e^z)=\imgn(z)\mod2\pi$
+        \item[$\bullet$] $\cos(z)=\frac{e^{iz}+e^{-iz}}{2}$
+        \item[$\bullet$] $\cosh(z)=\frac{e^{z}+e^{z}}{2}$
+        \item[$\bullet$] $\sin(z)=\frac{e^{iz}-e^{-iz}}{2i}$
+        \item[$\bullet$] $\sinh(z)=\frac{e^{z}-e^{-z}}{2i}$
+    \end{itemize}
+    \item \textbf{Logarithm}: Continuous, differentiable everywhere except $a<0,b=0$
+    \begin{itemize}
+        \item[$\bullet$] $\real(\log z)=\log|z|$
+        \item[$\bullet$] $\imgn(\log z)=\agmt(z)$
+    \end{itemize}
+    \item \textbf{Curve}: Continuous $\gamma:[a,b]\mapsto\C$
+    \item \textbf{Simple Curve}: No self-intersection, except endpoints
+    \item \textbf{Closed Curve}: $\gamma(a)=\gamma(b)$
+    \item \textbf{Jordan's Curve Theorem}: If $\gamma$ is simple and closed, $\C\setminus\gamma([a,b])$ is the disjoint union of a bounded domain (``inside'') and an unbounded domain (``outside'')
+    \item \textbf{Curve Components}: $\gamma(t)=x(t)+i(t)$
+    \item \textbf{Differentiability}: $\gamma$ diff. $\iff x$ diff. and $y$ diff. \\
+    If $\gamma$ diff. then $\gamma'=x'+iy'$ \\
+    $\gamma$ diff. at $t_0$ if the limit exists $\lim_{t\rightarrow t_0}\frac{|\gamma(t)-\gamma(t_0)|}{t-t_0}$
+    \item \textbf{Smooth Curve}: $\gamma$ is diff. and $\gamma$ is cont. (also ``continuously differentiable'')
+    \item \textbf{Piecewise Smooth}: Curve is made up of smooth curves joined at the endpoints.
+\end{itemize}
+
+\section*{Week 5 (Oct 3, Oct 6)}
+\begin{itemize}
+    \item \textbf{Line Segment}: $\gamma(t)=(1-t)z_0+tz_1$, $t\in[0,1]$
+    \item \textbf{Circle Arc}: $\gamma(t)=z_0+re{it}$, $t\in[\theta_0,\theta_1]$
+    \item \textbf{Curve Concatenation}: $(\gamma_1+\gamma_2)(t)=[a_1,b_1+b_2-a_2]\mapsto\C$\\
+    $(\gamma_1+\gamma_2)(t)=\gamma_1(t)$ if $t\in[a,b]$, $\gamma_2(t)$ if $t\in[b_1,b_1+b_2-a_2]$
+    \item \textbf{Curve Inverse}: $-\gamma:[a,b]\mapsto\C$, $(-\gamma)(t)=\gamma(a+b-t)$
+    \item \textbf{Curve Orientation}: Take $z_0$ on inside of simple closed curve $\gamma$ and let $r:[a,b]\mapsto\R_{>0}$, $\theta:[a,b]\mapsto\R$ such that $\gamma=z_0+re^{i\theta}$. Then $\gamma$ is positively oriented if $\theta(a)+2\pi=\theta(b)$ and negatively oriented if $\theta(a)-2\pi=\theta(b)$
+    \item \textbf{Curve Integral}: $\int_a^b\gamma dt=\int_a^b\real(\gamma)dt+i\int_a^b\imgn(\gamma)dt$
+    \item \textbf{Line Integral}: If $\gamma$ is smooth, $\int_\gamma f(z)dz=\int_a^bf'(\gamma(t))\gamma'(t)dt$
+\end{itemize}
+
+\section*{Week 6 (Oct 17, Oct 20)}
+\begin{itemize}
+    \item \textbf{Arc Length}: $\len(\gamma)=\int_a^b|\gamma'|dt=\int_a^b\sqrt{(x')^2+(y')^2}dt$
+    \begin{itemize}
+        \item[$\bullet$] $\len(\gamma)=\len(-\gamma)$
+        \item[$\bullet$] $\len(\gamma_1+\gamma_2)=\len(\gamma_1)+\len(\gamma_2)$
+    \end{itemize}
+    \item \textbf{Equal Line Integrals}: Let $\gamma_1:[a_1,b_1]\mapsto\C$, $\gamma_2:[a_2,b_2]\mapsto\C$ both piecewise smooth, and $\exists\oslash:[a_1,b_1]\mapsto[a_2,b_2]$ be cont. diff. s.t. $\gamma_1=\gamma_2(\oslash)$. Then for all $f:\gamma([a_1,b_1])\mapsto\C$, $f$ is cont. and $\int_{\gamma_1}f(z)dz=\int_{\gamma_2}f(z)dz$. \\
+    ``If two curves draw the same path at different speeds, their line integral is still equal''
+    \item \textbf{Line Integral Upper Bound}: $\left|\int_\gamma f(z)dz\right|\leq\len(\gamma)\cdot\max|f(z)|$
+    \item \textbf{Continuously Differentiable}: Let $f:U\in\C\mapsto\C$, and represent the real/imaginary parts of f by functions $\mu(x,y)=\real(f),\mathrm{v}(x,y)=\imgn(f)$. Then $f$ is continuously differentiable (or $C^1$) if all the partial derivatives exist and are continuous: $\frac{\partial\mu}{\partial x},\frac{\partial\mu}{\partial y},\frac{\partial\mathrm{v}}{\partial x},\frac{\partial\mathrm{v}}{\partial y}$. In this case, $\frac{\partial f}{\partial x}=\frac{\partial\mu}{\partial x}+\frac{\partial\mathrm{v}}{\partial x}i$ and $\frac{\partial f}{\partial y}=\frac{\partial\mu}{\partial y}+\frac{\partial\mathrm{v}}{\partial y}i$.
+    \item \textbf{Curve Integral}: 
+    \item \textbf{Green's Theorem}: 
+    \item \textbf{Holomorphic Function}:
+\end{itemize}
+
+\end{document}
