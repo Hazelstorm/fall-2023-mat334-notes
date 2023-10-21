@@ -108,7 +108,7 @@
     \item \textbf{Curve Inverse}: $-\gamma:[a,b]\mapsto\C$, $(-\gamma)(t)=\gamma(a+b-t)$
     \item \textbf{Curve Orientation}: Take $z_0$ on inside of simple closed curve $\gamma$ and let $r:[a,b]\mapsto\R_{>0}$, $\theta:[a,b]\mapsto\R$ such that $\gamma=z_0+re^{i\theta}$. Then $\gamma$ is positively oriented if $\theta(a)+2\pi=\theta(b)$ and negatively oriented if $\theta(a)-2\pi=\theta(b)$
     \item \textbf{Curve Integral}: $\int_a^b\gamma dt=\int_a^b\real(\gamma)dt+i\int_a^b\imgn(\gamma)dt$
-    \item \textbf{Line Integral}: If $\gamma$ is smooth, $\int_\gamma f(z)dz=\int_a^bf'(\gamma(t))\gamma'(t)dt$
+    \item \textbf{Line Integral}: If $\gamma$ is smooth, $\int_\gamma f(z)dz=\int_a^bf'(\gamma(t))\gamma'(t)dt$. If $\gamma$ is piecewise smooth, just sum the line integrals of each sub-curve.
 \end{itemize}
 
 \section*{Week 6 (Oct 17, Oct 20)}
@@ -121,10 +121,23 @@
     \item \textbf{Equal Line Integrals}: Let $\gamma_1:[a_1,b_1]\mapsto\C$, $\gamma_2:[a_2,b_2]\mapsto\C$ both piecewise smooth, and $\exists\oslash:[a_1,b_1]\mapsto[a_2,b_2]$ be cont. diff. s.t. $\gamma_1=\gamma_2(\oslash)$. Then for all $f:\gamma([a_1,b_1])\mapsto\C$, $f$ is cont. and $\int_{\gamma_1}f(z)dz=\int_{\gamma_2}f(z)dz$. \\
     ``If two curves draw the same path at different speeds, their line integral is still equal''
     \item \textbf{Line Integral Upper Bound}: $\left|\int_\gamma f(z)dz\right|\leq\len(\gamma)\cdot\max|f(z)|$
-    \item \textbf{Continuously Differentiable}: Let $f:U\in\C\mapsto\C$, and represent the real/imaginary parts of f by functions $\mu(x,y)=\real(f),\mathrm{v}(x,y)=\imgn(f)$. Then $f$ is continuously differentiable (or $C^1$) if all the partial derivatives exist and are continuous: $\frac{\partial\mu}{\partial x},\frac{\partial\mu}{\partial y},\frac{\partial\mathrm{v}}{\partial x},\frac{\partial\mathrm{v}}{\partial y}$. In this case, $\frac{\partial f}{\partial x}=\frac{\partial\mu}{\partial x}+\frac{\partial\mathrm{v}}{\partial x}i$ and $\frac{\partial f}{\partial y}=\frac{\partial\mu}{\partial y}+\frac{\partial\mathrm{v}}{\partial y}i$.
-    \item \textbf{Curve Integral}: 
-    \item \textbf{Green's Theorem}: 
-    \item \textbf{Holomorphic Function}:
+    \item \textbf{Continuously Differentiable}: Let $f(z):U\subseteq\C\mapsto\C$, and let $\mu(x,y)=\real(f)$, $\mathrm{v}(x,y)=\imgn(f)$ for $z=x+yi$. Then $f$ is continuously differentiable (or $C^1$) if all the partial derivatives exist and are continuous: $\frac{\partial\mu}{\partial x},\frac{\partial\mu}{\partial y},\frac{\partial\mathrm{v}}{\partial x},\frac{\partial\mathrm{v}}{\partial y}$. In this case:
+    \begin{itemize}
+        \item[$\bullet$] $\frac{\partial f}{\partial x}=\frac{\partial\mu}{\partial x}+i\frac{\partial\mathrm{v}}{\partial x}$
+        \item[$\bullet$] $\frac{\partial f}{\partial y}=\frac{\partial\mu}{\partial y}+i\frac{\partial\mathrm{v}}{\partial y}$
+        \item[$\bullet$] $\frac{df}{dz}=\frac{\partial f}{\partial x}+i\frac{\partial f}{\partial y}$.
+    \end{itemize}
+    \item \textbf{Domain Boundary Integral}: Let $\Omega\in\C$ be a domain whose boundary $\Gamma$ is the union of a positively oriented outer boundary curve and finitely many negatively oriented inner boundary curves. Then for any open $U\subseteq\C$ and continuously differentiable $f:U\mapsto\C$, the line integral of $\Gamma$ is the sum of the line integrals of all the bounding curves.
+    \item \textbf{Green's Theorem}:
+    $$\int_\Gamma f(z)=i\iint_\Omega\frac{df}{dz}dxdy$$
+    \item \textbf{Holomorphic Function}: Let $D\subseteq\C$ be a domain. Then $f$ is $\C$-differentiable at $z_0\in D$ if the limit exists $\lim_{z\rightarrow z_0}\frac{f(z)-f(z_0)}{z-z_0}=\lim_{h\rightarrow0}\frac{f(z_0+h)-f(z_0)}{h}$ and this limit is called $f'(z_0)$. A function is holomorphic if it is $\C$-differentiable at every point on its domain.
+    \begin{itemize}
+        \item[$\bullet$] If $f$ is $\C$-differentiable at $z_0$ then $f$ is continuous at $z_0$
+        \item[$\bullet$] $(f+g)'(z_0)=f'(z_0)+g'(z_0)$
+        \item[$\bullet$] $(wf)'(z_0)=wf'(z_0)$
+        \item[$\bullet$] Product Rule and Quotient Rule hold
+        \item[$\bullet$] Polynomials and exponentials show expected results
+    \end{itemize}
 \end{itemize}
 
 \end{document}
